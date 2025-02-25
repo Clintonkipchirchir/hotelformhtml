@@ -1,8 +1,8 @@
 #filter books by specific author
 from relationship_app.models import Book, Author, Library, Librarian
 
-name = book.author.name
-list_books_by_author = Book.objects.filter(author__name=name)
+author = Authir.objects.get(name=author_name)
+books_by_author = Book.objects.filter(author=author)
 
 #get all books in a library
 all_books_in_library = Library.objects.get(name=library_name)
