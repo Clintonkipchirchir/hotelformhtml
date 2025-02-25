@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bookshelf.apps.BookshelfConfig', # Add the bookshelf app to the list of installed apps
+    'relationship_app.apps.RelationshipAppConfig', # Add the relationship_app to the list of installed apps
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
