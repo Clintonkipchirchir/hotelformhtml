@@ -5,7 +5,7 @@ name = book.author.name
 list_books_by_author = Book.objects.filter(author__name=name)
 
 #get all books in a library
-all_books_in_library = library.objects.get(name='library_name'), books.all()
+all_books_in_library = library.objects.get(name='library_name')
 
 #retrieve librarian for a library
 my_library = library.name
