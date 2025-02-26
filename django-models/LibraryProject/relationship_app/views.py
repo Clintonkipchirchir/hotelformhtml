@@ -9,4 +9,4 @@ def all_books(request):
 
 def library_details(request):
     libraries = Library.objects.all()
-    return render(request, 'relationship_app/library_details.html', {'libraries': libraries})
+    return render(request, 'relationship_app/library_detail.html', {'libraries': libraries})
