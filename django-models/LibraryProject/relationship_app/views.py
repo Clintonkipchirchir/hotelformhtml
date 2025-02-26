@@ -10,6 +10,6 @@ def all_books(request):
 
 def library_details(DetailView):
     model = Library
-    template_name = 'relationship_app/library_details.html'
+    template_name = 'relationship_app/library_detail.html'
     context_object_name = 'library'
    
