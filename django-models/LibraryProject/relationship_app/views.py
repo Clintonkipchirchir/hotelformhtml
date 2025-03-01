@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import login , logout
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.detail import DetailView
+from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Book
 from .models import Library
 
@@ -47,12 +49,17 @@ def Logout_user(request):
     return redirect('all_books')
 
 #create user access control
+@login_required
+@user_passes_test(lambda u: u.userprofile.role == 'Admin')
 def admin_view(request):
-    pass
+    return render(request, 'relationship_app/admin.html')
 
+@login_required
+@user_passes_test(lambda u: u.userprofile.role == 'Admin')
 def librarian_view(request):
-    pass
+    return render(request, 'relationship_app/librarian.html')
 
-@user_
+@login_required
+@user_passes_test(lambda u: u.userprofile.role == 'Admin')
 def member_view(request):
-    pass
+    return render(request, 'relationship_app/member.html')
