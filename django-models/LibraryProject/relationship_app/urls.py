@@ -1,7 +1,9 @@
 from django.urls import path
 from . import views
 from .views import library_details, register, Login_user, Logout_user
-from .models import admin_view, librarian_view, member_view
+from .admin_view import admin_view
+from .librarian_view import librarian_view
+from .member_view import member_view
 
 urlpatterns = [
     path('', views.all_books, name='all_books'),
