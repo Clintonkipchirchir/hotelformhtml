@@ -6,8 +6,6 @@ from django.views.generic.detail import DetailView
 from .models import Book
 from .models import Library
 
-# create user
-
 
 # Create your views here
 
@@ -20,6 +18,8 @@ def library_details(DetailView):
     template_name = 'relationship_app/library_detail.html'
     context_object_name = 'library'
 
+
+# create user , login and logout
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -31,7 +31,7 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'relationship_app/register.html', {'form': form})
 
-def LoginVeiw(request):
+def Login_user(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -42,6 +42,17 @@ def LoginVeiw(request):
         form = UserCreationForm()
     return render(request, 'relationship_app/login.html')
 
-def LogoutView(request):
+def Logout_user(request):
     logout(request)
     return redirect('all_books')
+
+#create user access control
+def admin_view(request):
+    pass
+
+def librarian_view(request):
+    pass
+
+@user_
+def member_view(request):
+    pass
