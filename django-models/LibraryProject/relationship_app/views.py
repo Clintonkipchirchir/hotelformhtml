@@ -31,7 +31,7 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'relationship_app/register.html', {'form': form})
 
-def loginVeiw(request):
+def LoginVeiw(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -42,6 +42,6 @@ def loginVeiw(request):
         form = UserCreationForm()
     return render(request, 'relationship_app/login.html')
 
-def logoutView(request):
+def LogoutView(request):
     logout(request)
     return redirect('all_books')
