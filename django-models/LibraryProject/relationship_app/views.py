@@ -48,19 +48,3 @@ def Logout_user(request):
     logout(request)
     return redirect('all_books')
 
-
-#create user access control
-@login_required
-@user_passes_test(lambda u: u.userprofile.role == 'Admin')
-def admin_view(request):
-    return render(request, 'relationship_app/admin.html')
-
-@login_required
-@user_passes_test(lambda u: u.userprofile.role == 'librarian')
-def librarian_view(request):
-    return render(request, 'relationship_app/librarian.html')
-
-@login_required
-@user_passes_test(lambda u: u.userprofile.role == 'Member')
-def member_view(request):
-    return render(request, 'relationship_app/member.html')
