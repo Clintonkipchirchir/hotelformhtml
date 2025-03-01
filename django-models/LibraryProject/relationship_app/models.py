@@ -34,9 +34,9 @@ class Librarian(models.Model):
 #create user profile model with roles assinged
 class UserProfile(models.Model):
     ROLE_CHOICES = (
-        ('Admin', 'Admin'),
-        ('Librarian', 'Librarian'),
-        ('Member', 'Member'),
+        ('Admin'),
+        ('Librarian'),
+        ('Member'),
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     role = models.CharField(max_length=100, choices=ROLE_CHOICES, default='Member')
