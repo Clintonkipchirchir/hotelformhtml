@@ -4,7 +4,6 @@ from django.contrib.auth import login , logout
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.detail import DetailView
-from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Book
 from .models import Library
 
