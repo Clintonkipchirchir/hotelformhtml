@@ -1,7 +1,5 @@
 from django.db import models
-from django.shortcuts import render
 from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required, user_passes_test
 
 
 # Create your models here.
@@ -47,18 +45,3 @@ class UserProfile(models.Model):
         return self.user.username
 
 
-#create user access control
-@login_required
-@user_passes_test(lambda u: u.userprofile.role == 'Admin')
-def admin_view(request):
-    return render(request, 'admin.html')
-
-@login_required
-@user_passes_test(lambda u: u.userprofile.role == 'librarian')
-def librarian_view(request):
-    return render(request, 'librarian.html')
-
-@login_required
-@user_passes_test(lambda u: u.userprofile.role == 'Member')
-def member_view(request):
-    return render(request, 'member.html')
