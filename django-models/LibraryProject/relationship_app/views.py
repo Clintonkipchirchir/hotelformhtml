@@ -49,7 +49,7 @@ def Logout_user(request):
     return redirect('all_books')
 
 #create user access control
-@user_passes_test(lambda user: user.userprofile.role == 'Admin')
+@user_passes_test(lambda user: user.UserProfile.role == 'Admin')
 def admin_view(request):
     return render(request, 'relationship_app/admin.html')
 
