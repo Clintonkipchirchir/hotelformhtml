@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required, user_passes_test, permission_required
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.decorators import permission_required
 from django.contrib.auth import login , logout
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
