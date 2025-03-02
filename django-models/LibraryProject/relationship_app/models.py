@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import render
 from django.contrib.auth.models import User
 
 
@@ -34,9 +35,9 @@ class Librarian(models.Model):
 #create user profile model with roles assinged
 class UserProfile(models.Model):
     ROLE_CHOICES = (
-        ('Admin'),
-        ('Librarian'),
-        ('Member'),
+        ('Admin', 'Admin'),
+        ('Librarian', 'Librarian'),
+        ('Member', 'Member'),
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     role = models.CharField(max_length=100, choices=ROLE_CHOICES, default='Member')
