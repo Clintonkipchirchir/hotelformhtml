@@ -50,17 +50,17 @@ def Logout_user(request):
 
 #create user access control
 @user_passes_test(lambda user: user.userprofile.role == 'Admin')
-@permission_required('relationship_app.book_creation','relationship_app.book_deletion', 'relationship_app.book_modification', raise_exception=True)
+@permission_required('relationship_app.can_add_book','relationship_app.can_delete_book', 'relationship_app.can_change_book', raise_exception=True)
 def admin_view(request):
     return render(request, 'relationship_app/admin_view.html')
 
 
 @user_passes_test(lambda user: user.userprofile.role == 'Librarian')
-@permission_required('relationship_app.book_creation','relationship_app.book_modification', raise_exception=True)
+@permission_required('relationship_app.can_add_book','relationship_app.can_change_book', raise_exception=True)
 def librarian_view(request):
     return render(request, 'relationship_app/librarian_view.html')
 
 @user_passes_test(lambda user: user.userprofile.role == 'Member')
-@permission_required('relationship_app.book_creation', raise_exception=True)
+@permission_required('relationship_app.can_add_book', raise_exception=True)
 def member_view(request):
     return render(request, 'relationship_app/member_view.html')
