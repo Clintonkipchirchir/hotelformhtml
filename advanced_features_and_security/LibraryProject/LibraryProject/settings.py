@@ -146,6 +146,9 @@ CSP_STYLE_SRC = ("'self'")
 
 CSP_SCRIPT_SRC = ("'self'")
 
+# temporary fix for the issue
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
