@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-e#c*u7cc-a(4t(w-q9)wb*-y3!k*begkpts!syje(e0r%+kma4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+    'csp.middleware.CSPMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -109,6 +110,32 @@ AUTH_USER_MODEL = 'bookshelf.CustomUser'
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
+
+#security for web application
+#https://docs.djangoproject.com/en/5.1/topics/security/
+
+## SECURE_BROWSER_XSS_FILTER
+SECURE_BROWSER_XSS_FILTER = True
+
+## X_FRAME_OPTIONS
+X_FRAME_OPTIONS = 'DENY'
+
+## SECURE_CONTENT_TYPE_NOSNIFF
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+## CSRF_COOKIE_SECURE
+CSRF_COOKIE_SECURE = True
+
+## SESSION_COOKIE_SECURE
+SESSION_COOKIE_SECURE = True
+
+# Content Security Policy
+CSP_IMG_SRC = ("'self'")
+
+CSP_STYLE_SRC = ("'self'")
+
+CSP_SCRIPT_SRC = ("'self'")
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
