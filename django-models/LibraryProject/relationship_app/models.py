@@ -14,6 +14,12 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=100)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    class Meta:
+        permissions = [
+            ('book_creation', 'can_add_book'),
+            ('book_deletion', 'can_delete_book'),
+            ('book_modification', 'can_change_book'),
+        ]
     
     def __str__(self):
         return self.name
@@ -44,5 +50,6 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+
 
 
