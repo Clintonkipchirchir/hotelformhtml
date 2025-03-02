@@ -56,8 +56,8 @@ def admin_view(request):
 
 @user_passes_test(lambda user: user.userprofile.role == 'Librarian')
 def librarian_view(request):
-    return render(request, 'relationship_app/librarian.html')
+    return render(request, 'relationship_app/librarian_view.html')
 
 @user_passes_test(lambda user: user.userprofile.role == 'Member')
 def member_view(request):
-    return render(request, 'relationship_app/member.html')
+    return render(request, 'relationship_app/member_view.html')
