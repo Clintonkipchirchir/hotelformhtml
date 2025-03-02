@@ -6,6 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.detail import DetailView
 from .models import Book
 from .models import Library
+from .models import UserProfile
 
 
 # Create your views here
