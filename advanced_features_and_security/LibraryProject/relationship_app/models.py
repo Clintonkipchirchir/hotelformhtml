@@ -1,7 +1,16 @@
+fromdjango.contrib.auth.models import UserManager
 from django.db import models
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
+#create custom user model
+class CustomUser(AbstractUser):
+    date_of_birth = models.DateField()	
+    profile_photo = models.ImageField(upload_to='profile_photos/', blank=True)
+
+class CustomUserManager(UserManager):
+    def 
 
 # Create your models here.
 class Author(models.Model):
