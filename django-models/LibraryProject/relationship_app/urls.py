@@ -11,8 +11,11 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('login/', views.Login_user, name='login'),
     path('logout/', views.Logout_user, name='logout'),
-    path('admin/', views.admin_view, name='admin'),
-    path('librarian/', views.librarian_view, name='librarian'),
-    path('member/', views.member_view, name='member'),
+    path('admin/add_book/', views.admin_view, name='admin'),
+    path('admin/edit_book/', views.admin_view, name='admin'),
+    path('admin/delete_book', views.admin_view, name='admin'),
+    path('librarian/add_book/', views.librarian_view, name='librarian'),
+    path('librarian/edit_book/', views.librarian_view, name='librarian'),
+    path('member/add_book/', views.member_view, name='member'),
 ]
 
